@@ -1,0 +1,66 @@
+﻿<Window x:Class="DataGrid_Pro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DataGrid Pro Dashboard"
+        Height="650" Width="1000"
+        Background="#FAFAFA"
+        WindowStartupLocation="CenterScreen">
+
+    <DockPanel LastChildFill="True">
+        <!-- Header Section -->
+        <Border Background="#004578" DockPanel.Dock="Top" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="/Images/SqlReportsLogo-NoBG.png" Height="60" Margin="0,0,10,0"/>
+                <TextBlock Text="DataGrid Pro Reports Dashboard" 
+                           Foreground="White" 
+                           FontSize="28" 
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Reports Section -->
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" Height="260" Margin="0,10,0,10">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+                <!-- Sales Reports -->
+                <TextBlock Text="📊 Sales Reports" FontSize="18" FontWeight="Bold" Margin="0,10,0,5" Foreground="#333"/>
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Content="Customer Directory" Click="Report1_Click" Margin="5" Padding="10,5"/>
+                    <Button Content="Recent Orders Summary" Click="Report2_Click" Margin="5" Padding="10,5"/>
+                    <Button Content="Invoice Aging Report" Click="Report5_Click" Margin="5" Padding="10,5"/>
+                    <Button Content="Product Price List" Click="Report7_Click" Margin="5" Padding="10,5"/>
+                </WrapPanel>
+
+                <!-- Procurement Reports -->
+                <TextBlock Text="📦 Procurement Reports" FontSize="18" FontWeight="Bold" Margin="0,15,0,5" Foreground="#333"/>
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Content="Supplier Purchase Orders" Click="Report3_Click" Margin="5" Padding="10,5"/>
+                    <Button Content="Inventory Purchase Details" Click="Report8_Click" Margin="5" Padding="10,5"/>
+                    <Button Content="Product Color Catalog" Click="Report6_Click" Margin="5" Padding="10,5"/>
+                </WrapPanel>
+
+                <!-- Geographic Reports -->
+                <TextBlock Text="🌍 Geographic Reports" FontSize="18" FontWeight="Bold" Margin="0,15,0,5" Foreground="#333"/>
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Content="City Demographics" Click="Report4_Click" Margin="5" Padding="10,5"/>
+                    <Button Content="Top Cities by Population" Click="Report9_Click" Margin="5" Padding="10,5"/>
+                    <Button Content="Country Reference List" Click="Report10_Click" Margin="5" Padding="10,5"/>
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Results Grid -->
+        <Border BorderThickness="1" BorderBrush="#DDD" Margin="10">
+            <DataGrid x:Name="ResultsGrids" 
+                      AutoGenerateColumns="True" 
+                      IsReadOnly="True" 
+                      AlternatingRowBackground="#F5F5F5"
+                      GridLinesVisibility="Horizontal"
+                      HeadersVisibility="All"
+                      SelectionMode="Single"
+                      FontSize="14"
+                      />
+        </Border>
+    </DockPanel>
+</Window>
